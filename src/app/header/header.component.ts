@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.html']
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
+
   title: string = 'App Angular Spring';
+
   constructor() { }
 
   ngOnInit(): void {

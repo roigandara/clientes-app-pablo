@@ -1,53 +1,52 @@
-<div class = "card bg-dark text-white">
-    <div class = "card-header">{{title}}</div>
+<div class="card bg-dark text-white">
+    <div class="card-header"> {{ title }} </div>
     <div class="card-body">
-        <form>
+        <form >
             <div class="form-group row">
-                <label for="" class="col-form-label col-sm-2">Nombre</label>
+                <label for="name" class="col-form-label col-sm-2">Nombre</label>
                 <div class="col-sm-6">
                     <input type="text" [(ngModel)]="client.name" name="name" class="form-control" required minlength="4" #name="ngModel">
                     <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
-                        // si hay algún error en "name", muestra el el siguiente div
-                        // Touched es cuando tienes el foco en el campo y dirty cuando no.
-                        <div *ngIf="name.errors.required">El nombre es obligatorio</div>
-                        <div *ngIf="name.errors.minlength">El nombre ha de tener cuatro caracteres como mínimo</div>
+                        <div *ngIf="name.errors.required"> El nombre es obligatorio</div>
+                        <div *ngIf="name.errors.minlength"> El nombre tiene que tener al menos 4 caracteres </div>
                     </div>
                 </div>
+
             </div>
+
             <div class="form-group row">
                 <label for="surname" class="col-form-label col-sm-2">Apellido</label>
                 <div class="col-sm-6">
-                    <input type="text" [(ngModel)]="client.surname" name="surname" class="form-control" required #surname="ngModel">
+                    <input type="text" class="form-control" [(ngModel)]="client.surname" name="surname" required #surname="ngModel">
                     <div class="alert alert-danger" *ngIf="surname.invalid && (surname.dirty || surname.touched)">
-                    <!-- si hay algún error en "name", muestra el el siguiente div 
-                    Touched es cuando tienes el foco en el campo y dirty cuando no.-->
-                        <div *ngIf="surname.errors.required">El apellido es obligatorio</div>
+                        <div *ngIf="surname.errors.required"> Apellido obligatorio</div>
                     </div>
                 </div>
+
             </div>
             <div class="form-group row">
                 <label for="email" class="col-form-label col-sm-2">Email</label>
                 <div class="col-sm-6">
-                    <input type="text" [(ngModel)]="client.email" name="email" class="form-control" required #email="ngModel" email>
+                    <input type="text" class="form-control" [(ngModel)]="client.email" name="email" required #email="ngModel" email>
                     <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
-                        // si hay algún error en "name", muestra el el siguiente div
-                        // Touched es cuando tienes el foco en el campo y dirty cuando no.
-                        <div *ngIf="email.errors.required">El email es obligatorio</div>
-                        <div *ngIf="email.errors.email">Formato incorrecto</div>
+                        <div *ngIf="email.errors.required"> Email obligatorio </div>
+                        <div *ngIf="email.errors.email"> Formato incorrecto </div>
                     </div>
                 </div>
+
             </div>
+
             <div class="form-group row">
                 <div class="col-sm-6">
-                    <button onClick (click = "create()") class="btn btn-primary" role="button" *ngIf="!client.id" else #elseblock>Crear</button>
-                    // el ngIf indica que si no se proporciona id de cliente, es un formulario de creación y por lo tanto el botón tiene esa función.
-                    // else, ejecutar #elseblock
+                    <button (click)="create()" class="btn btn-primary" role="button" *ngIf="!client.id else elseblock"> Crear </button>
                     <ng-template #elseblock>
-                        <button onClick (click = "updateClient()") class="btn btn-primary" role="button">Modificar</button>
+                        <button (click)="updateClient()" class="btn btn-primary" role="button"> Modificar </button>
                     </ng-template>
+
                 </div>
             </div>
-        </form>
+
+        </form>    
     </div>
 
 </div>

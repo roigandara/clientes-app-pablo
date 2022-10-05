@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+
+  //Attributes
   author: any = {
-    name: 'Roi',
-    surname: 'Gándara'
+    name: 'Pablo',
+    surname: 'Fuentes'
   }
+
   constructor() { }
 
   ngOnInit(): void {

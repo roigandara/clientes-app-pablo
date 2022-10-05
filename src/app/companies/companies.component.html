@@ -1,0 +1,24 @@
+<div class="card border-primary mb-3">
+    <div class="card-header">Empresas</div>
+    <div class="card-body text-primary">
+      <h5 class="card-title">Listado de emrpesas</h5>
+      <table class="table table-bordered table-striped">
+        <thead>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>CIF</th>
+            <th>Email</th>
+            <th>Fecha</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let company of companies">
+                <td>{{ company.id }}</td>
+                <td>{{ company.name }}</td>
+                <td>{{ company.cif }}</td>
+                <td>{{ company.email }}</td>
+                <td>{{ company.createAt }}</td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
