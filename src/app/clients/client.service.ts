@@ -3,6 +3,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { Client } from './client';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Injectable({
@@ -38,6 +39,14 @@ export class ClientService {
     return this.http.put<any>(`${this.urlEndpoint}/${client.id}`, client, {headers: this.httpHeaders} )  
     .pipe( catchError(  e => { return throwError(() => e)  }  ))  
 
+  }
+
+  deleteClient(id : number) : Observable<Client> {
+    return this.http.delete<Client>(`${this.urlEndpoint}/${id}` )
+    .pipe( catchError(  e => { 
+      Swal.fire(e.error.message, e.error.errors, 'error');
+      return throwError(() => e);
+    }  ))
   }
 
   

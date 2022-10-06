@@ -23,6 +23,9 @@
                 <td>
                   <button class="btn btn-primary" type="button" [routerLink]="['/clients/form', client.id]" >Editar</button>
                 </td>
+                <td>
+                  <button class="btn btn-danger" type="button" (click)="deleteClient(client)" > Borrar </button>
+                </td>
             </tr>
         </tbody>
       </table>
